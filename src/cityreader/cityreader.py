@@ -37,6 +37,20 @@ print(cities)
 for c in cities:
     print(c)
 
+
+def get_city(la, lng, arr):
+    for obj in arr:
+        if obj["lat"] == la and obj["long"] == lng:
+            print(obj)
+
+
+lati = input("Please input latitude: ")
+longi = input("Please input longitude: ")
+
+
+get_city(lati, longi, cities)
+
+
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
