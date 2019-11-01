@@ -14,22 +14,28 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
+
 cities = []
 
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the
-  # `cities` list
+    import csv
 
-    return cities
+    with open('/Users/mr.ball/Documents/coding/lambda/python/python-intro/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv', 'rt') as f:
+        data = csv.reader(f)
+        for row in data:
+            cities.append({"city": row[0], "lat": row[3], "long": row[4]})
+
+        return cities
 
 
-cityreader()
+cities = cityreader()
+print(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
 
 # STRETCH GOAL!
 #
@@ -64,7 +70,7 @@ for c in cities:
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
+    # within will hold the cities that fall within the specified region
     within = []
 
     # TODO Ensure that the lat and lon valuse are all floats
